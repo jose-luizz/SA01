@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>To-do Orçamento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Lista de Tarefas</h1>
+
+  <div class="form">
+    <input type="text" id="tarefa" placeholder="Nome da tarefa">
+    <input type="number" id="horas" placeholder="Horas">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+  </div>
+
+  <ul id="lista"></ul>
+
+  <button class="orcamento-btn" onclick="gerarOrcamento()">Gerar Orçamento</button>
+
+</div>
+
+<div class="orcamento" id="orcamento">
+  <h1>Orçamento</h1>
+  <ul id="resumo"></ul>
+  <h2 id="total"></h2>
+  <button onclick="voltar()">Voltar</button>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
