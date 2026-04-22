@@ -1,85 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #F5F7FA;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #020617;
+  color: #e2e8f0;
 }
 
-.container, .orcamento {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 350px;
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
+/* Formulário */
 .form {
   display: grid;
-  grid-template-columns: 2fr 1fr auto;
-  gap: 10px;
-  margin-bottom: 15px;
+  grid-template-columns: 2fr 1fr 1fr 120px;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-.form input {
-  flex: 1;
+input, select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #0f172a;
+  color: #f1f5f9;
+  outline: none;
 }
 
-.form button {
-  flex: 0 0 auto;
-}
-
-input {
-  
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-  box-sizing: border-box;
-
-  outline: none; 
-  transition: all 0.25s ease;
-}
-
-input:focus {
-  border-color: #2F80ED;
-  box-shadow: 0 0 0 1.5px rgba(47, 128, 237, 0.2);
+input:focus, select:focus {
+  border-color: #38bdf8;
 }
 
 button {
-  padding: 10px;
-  background: #2F80ED;
-  color: white;
+  padding: 12px;
+  border-radius: 8px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  transition: transform 0.1s, filter 0.2s;
 }
 
-button:hover {
-  background: #1366d6;
+button:active {
+  transform: scale(0.98);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+/* Boxes de Tarefas */
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
+
+.box {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 150px;
+  border: 1px solid #1e293b;
+}
+
+.box.urgente { border-color: #facc15; }
+.box.muito { border-color: #ef4444; }
+
+ul { list-style: none; }
 
 li {
-  background: #eee;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
+  background: #1e293b;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
-.orcamento {
-  display: none;
-}
-
+/* Botão de Gerar */
 .orcamento-btn {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   width: 100%;
-  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Card de Resultado */
+.orcamento-card {
+  margin-top: 40px;
+  background: #0f172a;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid #38bdf8;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.divisor {
+  border: 0;
+  border-top: 1px solid #1e293b;
+  margin-bottom: 25px;
+}
+
+.total-container {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 12px;
+}
+
+#total-label { color: #94a3b8; font-size: 0.9rem; text-transform: uppercase; }
+#total-valor { color: #22c55e; font-size: 2.5rem; margin-top: 5px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .form, .boxes { grid-template-columns: 1fr; }
 }

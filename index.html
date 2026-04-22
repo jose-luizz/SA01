@@ -2,32 +2,58 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>To-do Orçamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-do Orçamento Profissional</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-
   <h1>Lista de Tarefas</h1>
 
   <div class="form">
     <input type="text" id="tarefa" placeholder="Nome da tarefa">
     <input type="number" id="horas" placeholder="Horas">
+
+    <select id="urgencia">
+      <option value="0">Sem urgência</option>
+      <option value="0.2">Urgente (+20%)</option>
+      <option value="0.5">Muito urgente (+50%)</option>
+    </select>
+
     <button onclick="adicionarTarefa()">Adicionar</button>
   </div>
 
-  <ul id="lista"></ul>
+  <div class="boxes">
+    <div class="box">
+      <h2>Sem urgência</h2>
+      <ul id="lista-normal"></ul>
+    </div>
+
+    <div class="box urgente">
+      <h2>Urgente (+20%)</h2>
+      <ul id="lista-urgente"></ul>
+    </div>
+
+    <div class="box muito">
+      <h2>Muito urgente (+50%)</h2>
+      <ul id="lista-muito"></ul>
+    </div>
+  </div>
 
   <button class="orcamento-btn" onclick="gerarOrcamento()">Gerar Orçamento</button>
 
-</div>
+  <div id="orcamento-resultado" class="orcamento-card" style="display: none;">
+    <hr class="divisor">
+    <h2>Resumo do Orçamento</h2>
+    <ul id="resumo"></ul>
+    <div class="total-container">
+      <span id="total-label">Estimativa Total:</span>
+      <h2 id="total-valor">R$ 0.00</h2>
+      <p>Taxa de imposto: 30%</p>
+    </div>
+  </div>
 
-<div class="orcamento" id="orcamento">
-  <h1>Orçamento</h1>
-  <ul id="resumo"></ul>
-  <h2 id="total"></h2>
-  <button onclick="voltar()">Voltar</button>
 </div>
 
 <script src="scripts.js"></script>
